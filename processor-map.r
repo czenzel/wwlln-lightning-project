@@ -1,0 +1,7 @@
+library(ggmap)
+csv<-read.csv('output/latest.csv')
+png("output/latest_us.png", width=800, height=800)
+map<-qmap('United States', zoom=3, maptype='satellite')
+map + geom_point(data=csv, aes(x=longitude,y=latitude), color="red", size=1.0, alpha=0.4)
+dev.off()
+q()
